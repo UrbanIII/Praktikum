@@ -1,6 +1,8 @@
-git add .
+git add . (Alternativ kann auch nur ein bestimmter Dateiname angegeben werden)
 git commit -m 'MESSAGE'
 git push origin master
 git pull origin master
 
 (git clone https://)
+
+https://www.geeksforgeeks.org/how-to-install-configure-and-use-git-on-ubuntu/
