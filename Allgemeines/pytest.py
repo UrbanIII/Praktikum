@@ -7,9 +7,8 @@ print(a)
 #plt.plot(a[:,0],a[:,1]) #Very simple plot without any error bars
 plt.title("Oh boy...")
 plt.xlabel("here we go again...")
-plt.legend # This is misused and I should really find out how to properly use it...
 
-plt.errorbar(a[:,0],a[:,1],xerr=0.5,yerr=0.5*a[:,1], fmt='go-.', ecolor="r")
+plt.errorbar(a[:,0],a[:,1],xerr=0.5,yerr=0.5*a[:,1], fmt='go-.', ecolor="r", label="data")
 
 x_axis = np.linspace(a[0,0]-1,a[-1,0],num=100)
 #print x_axis
@@ -31,7 +30,9 @@ print pcov
 perr = np.sqrt(np.diag(pcov))
 print perr
 fit_func = np.poly1d(params)
-plt.plot(x_axis, fit_func(x_axis))
+plt.plot(x_axis, fit_func(x_axis), label="fit")
+
+plt.legend() # This must be written after every instance of 'label=...'
 
 fig = plt.gcf() #only necessary, because plot destroys the 'current' figure
 plt.show() #By default, this destroys the figure (meaning that the command below will produce an empty image)
