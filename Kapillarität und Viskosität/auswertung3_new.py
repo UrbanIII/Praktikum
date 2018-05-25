@@ -5,26 +5,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.optimize as opt
 
-#For using pgf
-#print plt.rcParams['pgf.rcfonts']
-#plt.rcParams['pgf.rcfonts']=False
-#plt.rcParams['pgf.rcfonts']=False
-#settings = {
-#    backe
-#}
-#print plt.rcParams
-#print plt.rcParams['pgf.rcfonts']
+settings = {
+    'figure.figsize': [6,4], #Angabe in Zoll
+    'font.family': 'serif',
+    'backend': 'pdf',
+    'font.size': 12,
+    'figure.autolayout': True,
+    'axes.titlesize': 'medium',
+    'legend.fontsize': 'medium'
+}
 
-
+plt.rcParams.update(settings)
 
 data = np.loadtxt("data2b")
 t = data[:,0]
 h = data[:,1]
 
 plt.yscale('log')
-#plt.axis([-10,t[-1]+10,10**-0.3,10**0.05])
-#plt.yticks([10**-0.3,10**-0.2,10**-0.21,1],['10**-0.3','10**-0.2','10**-0.1','1'])
-#plt.yticks([10**-0.3,10**-0.2,10**-0.1,1],[r'$10^{-0.3}$','10**-0.2','10**-0.1','1'])
 plt.title('Ausfluss des Wassers durch die dünnste Kapillare')
 #plt.errorbar(t,h,xerr=0.3,yerr=0.2,fmt="go",label="Messwerte",ecolor="red")
 plt.plot(t,h/h[0],'gx',label='Messwerte')
@@ -47,4 +44,4 @@ plt.legend(loc='lower right')
 
 fig = plt.gcf()
 plt.show()
-fig.savefig('auswertung3.pgf')
+fig.savefig('auswertung3.eps')
