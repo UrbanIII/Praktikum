@@ -72,8 +72,10 @@ def clean(val, err):
 
 # x_axis = np.linspace(omega[0],omega[-1],100)
 # plt.plot(x_axis, f(x_axis,params[0],params[1],params[2]),label=clean(params[0],perr[0])+'$\cdot R+$'+clean(params[1],perr[1]))
-# plt.legend()
 
+plt.axvline(x=1190, label='abgelesenes Minimum')
+plt.axhline(y=91)
+plt.legend(loc='upper right')
 fig = plt.gcf()
 plt.show()
 fig.savefig('2.eps')
@@ -83,6 +85,9 @@ plt.errorbar(omega,Z,xerr = omega_err,yerr=Z_err,fmt="g.",label="Messwerte",ecol
 plt.xlabel(r'Kreisfrequenz $\omega$ $[\mathrm{s}^{-1}]$')
 plt.ylabel(r'Gesamte Impedanz $Z_0 = \frac{U}{I}$ $[\Omega]$')
 plt.axis([1120,1265,90,105])
+plt.axvline(x=1190, label='abgelesenes Minimum')
+plt.axhline(y=91)
+plt.legend(loc='center right')
 fig = plt.gcf()
 plt.show()
 fig.savefig('2_zoom.eps')
